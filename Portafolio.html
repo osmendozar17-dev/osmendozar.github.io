@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <style>
+        
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .container { width: 80%; margin: auto; overflow: hidden; }
+        header { background: #333; color: #fff; padding-top: 30px; min-height: 70px; border-bottom: #0779e4 3px solid; }
+        header a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 16px; }
+        header ul { padding: 0; list-style: none; }
+        header li { display: inline; padding: 0 20px 0 20px; }
+        header #branding { float: left; }
+        header #branding h1 { margin: 0; }
+        header nav { float: right; margin-top: 10px; }
+        #showcase { min-height: 400px; background: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat 0 -400px; text-align: center; color: #ffffff; }
+        #showcase h1 { margin-top: 100px; font-size: 55px; margin-bottom: 10px; }
+        #showcase p { font-size: 20px; }
+        .button { display: inline-block; font-size: 18px; color: #fff; background: #0779e4; padding: 10px 20px; border: none; border-radius: 5px; text-decoration: none; margin-top: 20px; }
+        .button:hover { background: #0056b3; }
+        section { padding: 20px; margin-top: 20px; background: #fff; border-radius: 5px; }
+        h2 { color: #0779e4; }
+        .skill-tag { background: #e2e2e2; padding: 5px 10px; border-radius: 4px; display: inline-block; margin: 5px; font-weight: bold; }
+        footer { padding: 20px; margin-top: 20px; color: #ffffff; background-color: #333; text-align: center; }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #0779e4;
+            display: block;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        @media(max-width: 768px) {
+            header #branding, header nav, header nav li { float: none; text-align: center; width: 100%; }
+            header { padding-bottom: 20px; }
+            #showcase h1 { margin-top: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Oscar S. Mendoza Rodriguez</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Estudiante de Ingeniería Informática</h1>
+            <p>Apasionado por el desarrollo web, aplicativos de escritorio y móviles.</p>
+            <a href="#proyectos" class="button">Ver Mis Proyectos</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="sobre-mi">
+            <img src="img.png" alt="Foto de Oscar Mendoza" class="profile-img">
+            
+            <h2>Sobre Mí</h2>
+            <p>Hola, soy Oscar. Actualmente cursando el 7mo ciclo de la carrera Ingeniería Informática en la Universidad Nacional Federico Villarreal, con un fuerte interés en aprender nuevas tecnologías. Aunque este es mi primer portafolio, tengo una base sólida en lógica de programación y muchas ganas de aportar valor a un equipo real.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <h3>Habilidades Técnicas</h3>
+            <div>
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">JavaScript (Básico)</span>
+                <span class="skill-tag">Git / GitHub</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">PHP</span>
+            </div>
+        </section> <section id="proyectos">
+            <h2>Proyectos Académicos</h2>
+            <p>Algunos de los trabajos destacados durante mi formación:</p>
+            
+            <div style="border-left: 4px solid #0779e4; padding-left: 15px; margin-bottom: 20px;">
+                <h3>Proyecto 1: Asistente Virtual</h3>
+                <p>Aplicación de consola desarrollada en Python para ayudar a los usuarios por comando de voz.</p>
+                <a href="https://github.com/osmendozar17-dev/Asistente-Virtual-V1" target="_blank">
+                    Repositorio &raquo;
+                </a>
+            </div>
+
+            <div style="border-left: 4px solid #0779e4; padding-left: 15px; margin-bottom: 20px;">
+                <h3>Proyecto 2: App Movil</h3>
+                <p>Aplicativo movil de recetario y carta de pescados y mariscos.</p>
+                <a href="https://github.com/osmendozar17-dev/App-Recetario-y-Carta.git" target="_blank">
+                    Repositorio &raquo;
+                </a>
+            </div>
+        
+            <div style="border-left: 4px solid #0779e4; padding-left: 15px; margin-bottom: 20px;">
+                <h3>Proyecto 3: Sistema de registro para Olla Comun </h3>
+                <p>Aplicación de escritorio desarrollado por PHP, JavaScript, CSS y conexion a SQL por medio de MYPHP.</p>
+            </div>
+
+            <div style="border-left: 4px solid #0779e4; padding-left: 15px; margin-bottom: 20px;">
+                <h3>Proyecto 4: ChatBot WhatsApp</h3>
+                <p>ChatBot para WhatsApp por conexion al API de Meta por Webhooks, de manera de prueba por medio de NGROK. Satisfaciendo la necesidad del cliente con la automatización de la conversación.</p>
+                <a href="https://github.com/osmendozar17-dev/Chatbot-WhatsApp.git" target="_blank">
+                    Repositorio &raquo;
+                </a>
+            </div>
+
+            <div style="border-left: 4px solid #0779e4; padding-left: 15px; margin-bottom: 20px;">
+                <h3>Proyecto 5: ChatBot Messenger</h3>
+                <p>ChatBot para Facebook Messenger por la API de Meta con conexion por Webhooks. Se usó NGROK como ambiente de prueba. Satisfaciendo la necesidad del cliente con la automatización de la conversación.</p>
+                <a href="https://github.com/osmendozar17-dev/Chatbot-Messenger.git" target="_blank">
+                    Repositorio &raquo;
+                </a>
+            </div>
+
+            <div style="border-left: 4px solid #0779e4; padding-left: 15px; margin-bottom: 20px;">
+                <h3>Proyecto 6: ChatBot Escolar</h3>
+                <p>Pagina Web con Chatbot para ayudar a los padres de familia con las consultas relacionadas con respecto a la matricula. Evitando de esa forma las largas colas y perdida de tiempo al estar presente para las consultas.</p>
+                <a href="https://github.com/osmendozar17-dev/Pagina-Web-Chatbot-Escolar.git" target="_blank">
+                    Repositorio &raquo;
+                </a>
+            </div>
+
+             <div style="border-left: 4px solid #0779e4; padding-left: 15px; margin-bottom: 20px;">
+                <h3>Proyecto 7: Portafolio V1</h3>
+                <p>Pagina Web con información al respecto a mi persona y los proyectos realizados a lo largo como estudiante de pregrado hasta la actualidad.</p>
+                <a href="https://github.com/osmendozar17-dev/Portafolio-v1.git" target="_blank">
+                    Repositorio &raquo;
+                </a>
+            </div>
+ 
+        </section>
+
+        <section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Interesado en mi perfil? ¡Contáctame!</p>
+    <p>📧 Email: <a href="mailto:os.mendozar17@gmail.com">os.mendozar17@gmail.com</a></p>
+    <p>🔗 <a href="https://www.linkedin.com/in/oscar-sebasthian-mendoza-rodriguez-63b75b309/" target="_blank">Ver mi perfil de LinkedIn</a></p>
+        </section>
+        
+    </div>
+
+    <footer>
+        <p>Oscar Mendoza &copy; 2025 | Desarrollado con HTML y CSS</p>
+    </footer>
+</body>
+</html>
