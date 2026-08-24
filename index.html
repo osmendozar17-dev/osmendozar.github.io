@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Desplazamiento suave para los enlaces del menú */
+        
         html {
             scroll-behavior: smooth;
         }
@@ -21,7 +21,7 @@
             color: #334155; 
             margin: 0; 
             padding: 0; 
-            background-color: #F1F5F9; /* Un gris apenas más oscuro para contrastar las tarjetas blancas */
+            background-color: #F1F5F9; 
         }
         .container { 
             width: 85%; 
@@ -135,7 +135,6 @@
             font-size: 1.25rem;
         }
         
-        /* Perfil mejorado */
         .profile-wrapper {
             display: flex;
             align-items: center;
@@ -157,7 +156,6 @@
             color: #475569;
         }
         
-        /* Habilidades Interactivas */
         .skill-tag { 
             background: #F8FAFC; 
             color: #334155;
@@ -179,7 +177,6 @@
             box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
         }
         
-        /* CSS GRID PARA PROYECTOS */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -214,7 +211,7 @@
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
-            margin-top: auto; /* Mantiene el link al final de la tarjeta */
+            margin-top: auto; 
             transition: color 0.3s ease;
         }
         .project-card a:hover {
@@ -250,7 +247,6 @@
             border-top: 1px solid #1E293B;
         }
 
-        /* Responsividad */
         @media(max-width: 768px) {
             header #branding, header nav, header nav li { 
                 float: none; 
@@ -263,7 +259,7 @@
                 gap: 15px;
                 padding-bottom: 15px;
             }
-            header { padding-bottom: 15px; position: relative; } /* Quita el sticky en móviles para ahorrar espacio */
+            header { padding-bottom: 15px; position: relative; } 
             #showcase h1 { font-size: 2.5rem; }
             .profile-wrapper {
                 flex-direction: column;
@@ -274,7 +270,7 @@
                 padding: 30px 20px;
             }
             .projects-grid {
-                grid-template-columns: 1fr; /* 1 sola columna en móviles */
+                grid-template-columns: 1fr; 
             }
         }
     </style>
@@ -332,7 +328,6 @@
             <h2>Proyectos Académicos</h2>
             <p style="margin-bottom: 10px; color: #64748B;">Algunos de los trabajos destacados durante mi formación:</p>
             
-            <!-- CONTENEDOR GRID PARA PROYECTOS -->
             <div class="projects-grid">
                 
                 <div class="project-card">
@@ -392,7 +387,7 @@
 
                 <div class="project-card">
                     <div>
-                        <h3>Proyecto 8: Automatización Carta PPP</h3>
+                        <h3>Proyecto 8: Automatización Carta de Presentación de PPP</h3>
                         <p>Web que se encarga de generar un consolidado para que el alumno pueda enviar a la universidad lo solicitado. Agiliza la obtención de la Carta de Presentación para Prácticas Pre Profesionales.</p>
                     </div>
                 </div>
@@ -404,7 +399,7 @@
                     </div>
                 </div>
 
-            </div> <!-- FIN DEL CONTENEDOR GRID -->
+            </div>
         </section>
 
         <section id="contacto">
