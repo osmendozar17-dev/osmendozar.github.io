@@ -1,418 +1,465 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | Oscar Mendoza</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            line-height: 1.7; 
-            color: #334155; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #F1F5F9; 
-        }
-        .container { 
-            width: 85%; 
-            max-width: 1200px; 
-            margin: auto; 
-            overflow: hidden; 
-        }
-        header { 
-            background: #0F172A;
-            color: #ffffff; 
-            padding-top: 20px; 
-            min-height: 70px; 
-            border-bottom: 4px solid #2563EB; 
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        header a { 
-            color: #e2e8f0; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-        }
-        header a:hover {
-            color: #60A5FA;
-        }
-        header ul { 
-            padding: 0; 
-            list-style: none; 
-        }
-        header li { 
-            display: inline; 
-            padding: 0 20px; 
-        }
-        header #branding { 
-            float: left; 
-            margin-top: 5px;
-        }
-        header #branding h1 { 
-            margin: 0; 
-            font-size: 22px;
-            font-weight: 700;
-        }
-        header nav { 
-            float: right; 
-            margin-top: 8px; 
-        }
-        
-        #showcase { 
-            min-height: 500px; 
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; 
-            text-align: center; 
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        #showcase h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 10px; 
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        #showcase p { 
-            font-size: 1.3rem; 
-            font-weight: 300;
-            margin-bottom: 30px;
-            color: #E2E8F0;
-        }
-        .button { 
-            display: inline-block; 
-            font-size: 16px; 
-            font-weight: 600;
-            color: #fff; 
-            background: #2563EB; 
-            padding: 14px 32px; 
-            border: none; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
-        }
-        .button:hover { 
-            background: #1D4ED8; 
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
-        }
-        
-        section { 
-            padding: 50px; 
-            margin-top: 40px; 
-            background: #ffffff; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        }
-        h2 { 
-            color: #0F172A; 
-            font-size: 2rem;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #E2E8F0;
-        }
-        h3 {
-            color: #1E293B;
-            margin-top: 0;
-            font-size: 1.25rem;
-        }
-        
-        .profile-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #F8FAFC;
-            box-shadow: 0 0 0 4px #2563EB, 0 10px 20px rgba(0,0,0,0.1); /* Doble borde elegante */
-            flex-shrink: 0;
-        }
-        .profile-text p {
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: #475569;
-        }
-        
-        .skill-tag { 
-            background: #F8FAFC; 
-            color: #334155;
-            padding: 10px 18px; 
-            border-radius: 8px; 
-            display: inline-block; 
-            margin: 5px 8px 10px 0; 
-            font-size: 0.95rem;
-            font-weight: 600; 
-            border: 1px solid #E2E8F0;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-        .skill-tag:hover {
-            background: #2563EB;
-            color: #ffffff;
-            border-color: #2563EB;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .project-card {
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #E2E8F0;
-            border-top: 5px solid #2563EB;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Empuja el enlace abajo */
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.08);
-            border-color: #CBD5E1;
-        }
-        .project-card p {
-            margin-bottom: 20px;
-            color: #64748B;
-            font-size: 0.95rem;
-        }
-        .project-card a {
-            color: #2563EB;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: auto; 
-            transition: color 0.3s ease;
-        }
-        .project-card a:hover {
-            color: #1E40AF;
-            text-decoration: underline;
-        }
-        
-        #contacto {
-            text-align: center;
-        }
-        #contacto p {
-            font-size: 1.15rem;
-            color: #475569;
-        }
-        #contacto a {
-            color: #2563EB;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        #contacto a:hover {
-            color: #1D4ED8;
-            text-decoration: underline;
-        }
-        
-        footer { 
-            padding: 30px; 
-            margin-top: 50px; 
-            color: #94A3B8; 
-            background-color: #0F172A; 
-            text-align: center; 
-            font-size: 0.95rem;
-            border-top: 1px solid #1E293B;
-        }
-
-        @media(max-width: 768px) {
-            header #branding, header nav, header nav li { 
-                float: none; 
-                text-align: center; 
-                width: 100%; 
-            }
-            header nav ul {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                padding-bottom: 15px;
-            }
-            header { padding-bottom: 15px; position: relative; } 
-            #showcase h1 { font-size: 2.5rem; }
-            .profile-wrapper {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            section {
-                padding: 30px 20px;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr; 
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202020">
+  <meta name="description" content="Portafolio de Oscar Mendoza Rodríguez, estudiante de Ingeniería Informática en la UNFV. Proyectos de desarrollo web, automatización, chatbots e integración de software.">
+  <meta name="author" content="Oscar Mendoza Rodríguez">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Oscar Mendoza | Ingeniería Informática">
+  <meta property="og:description" content="Desarrollo web, automatización y proyectos de software. Conoce mi trabajo y experiencia técnica.">
+  <meta property="og:locale" content="es_PE">
+  <title>Oscar Mendoza | Ingeniería Informática & Desarrollo de Software</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='16' fill='%23202020'/%3E%3Ctext x='40' y='52' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='36' fill='%23f5bd45'%3EOM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --ink:#202020; --ink-2:#282828; --surface:#f4f1eb; --surface-2:#fffdfa; --text:#242424; --muted:#686761; --line:#dcd8d0; --accent:#f5bd45; --accent-ink:#1d1d1d; --light:#fffaf0; --on-dark:#ededeb; --on-dark-muted:#aca9a3; --radius:18px; }
+    :root[data-theme="light"] { color-scheme: light; --ink:#393a38; --ink-2:#444541; --surface:#ffffff; --surface-2:#f7f5ef; --text:#262626; --muted:#64635f; --line:#dfddd7; }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:90px; }
+    body { margin:0; color:var(--text); background:var(--surface); font-family:'DM Sans', sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    button, a { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+    img { display:block; max-width:100%; }
+    img[hidden] { display:none !important; }
+    .container { width:min(1180px, calc(100% - 64px)); margin-inline:auto; }
+    .eyebrow { font-size:11px; letter-spacing:2.2px; font-weight:800; text-transform:uppercase; display:inline-flex; align-items:center; gap:12px; }
+    .eyebrow::before { content:''; width:22px; height:2px; background:var(--accent); display:block; }
+    .section-title { font-family:Manrope, sans-serif; font-size:clamp(32px,4.5vw,54px); letter-spacing:-2.7px; line-height:1.14; margin:17px 0; font-weight:800; }
+    .section-intro { font-size:16px; line-height:1.85; color:var(--muted); max-width:670px; }
+    .section-padding { padding:110px 0; }
+    .text-accent { color:var(--accent); }
+    .arrow { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .svg-icon { width:21px; height:21px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .btn { cursor:pointer; min-height:49px; padding:13px 23px; display:inline-flex; align-items:center; justify-content:center; gap:11px; font-weight:800; font-size:13px; border-radius:5px; border:1px solid transparent; transition:transform .2s, background-color .2s, color .2s, border-color .2s; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-primary { background:var(--accent); color:#1a1a1a; }
+    .btn-primary:hover { background:#ffd378; }
+    .btn-outline { background:transparent; color:var(--on-dark); border-color:#77736c; }
+    .btn-outline:hover { border-color:var(--accent); }
+    .btn-dark { background:#212121; color:#fff; }
+    .btn-dark:hover { background:#454545; }
+    /* Header */
+    .site-header { position:sticky; top:0; z-index:80; background:rgba(30,30,30,.97); border-bottom:1px solid #3b3b3b; color:white; backdrop-filter:blur(14px); }
+    .nav-wrap { height:75px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .wordmark { font-family:Manrope,sans-serif; font-size:23px; letter-spacing:-1.8px; font-weight:800; flex-shrink:0; }
+    .wordmark em { color:var(--accent); font-style:normal; }
+    .nav-links { display:flex; align-items:center; gap:29px; }
+    .nav-links a { font-size:13px; color:#ddd; font-weight:700; transition:color .2s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-actions { display:flex; align-items:center; gap:14px; }
+    .nav-cta { padding:11px 17px; font-size:12px; font-weight:800; border-radius:4px; background:var(--accent); color:#222; }
+    .icon-button { width:36px; height:36px; border:1px solid #4e4e4e; color:white; background:transparent; border-radius:6px; cursor:pointer; display:grid; place-items:center; }
+    .menu-button { display:none; }
+    .skip-link { position:absolute; top:-100px; left:10px; background:white; color:black; padding:12px; z-index:200; }
+    .skip-link:focus { top:10px; }
+    /* Hero: editorial split, intentionally photo-forward */
+    .hero { overflow:hidden; background:#232323; color:var(--on-dark); position:relative; }
+    .hero-shell { min-height:660px; display:grid; grid-template-columns:55% 45%; position:relative; }
+    .hero-copy { padding:111px 30px 86px 0; position:relative; z-index:2; }
+    .hero-greeting { color:var(--accent); font-size:14px; margin:0 0 18px; font-weight:800; }
+    .hero h1 { font-family:Manrope,sans-serif; letter-spacing:-3.6px; font-size:clamp(51px,5.5vw,81px); line-height:1.07; font-weight:800; max-width:720px; margin:0 0 23px; }
+    .hero h1 span { color:var(--accent); }
+    .hero-role { font-size:clamp(17px,2vw,23px); letter-spacing:-.5px; font-weight:600; max-width:550px; line-height:1.4; margin:0 0 17px; }
+    .hero-description { max-width:480px; color:#c9c7c1; font-size:15px; line-height:1.85; margin:0 0 31px; }
+    .hero-buttons { display:flex; flex-wrap:wrap; gap:12px; }
+    .hero-links { display:flex; align-items:center; gap:22px; margin-top:35px; }
+    .hero-links a { font-size:12px; font-weight:700; color:#d0cfcc; border-bottom:1px solid #76736c; padding-bottom:5px; }
+    .hero-links a:hover { color:var(--accent); border-color:var(--accent); }
+    .hero-photo-zone { position:relative; min-height:660px; background:var(--accent); isolation:isolate; }
+    .hero-photo-zone::before { content:''; position:absolute; inset:49px 31px 43px -36px; border:1px solid rgba(34,34,34,.3); z-index:0; }
+    .photo-frame { position:absolute; inset:55px 33px 0 -38px; overflow:hidden; display:grid; place-items:end center; background:radial-gradient(circle at 60% 40%,#f0c86b 0,#e5a92f 70%); }
+    .portrait { width:100%; height:100%; object-fit:cover; object-position:center 22%; position:absolute; inset:0; z-index:2; filter:saturate(.72) contrast(1.02); }
+    .portrait-fallback { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#242424; z-index:1; overflow:hidden; }
+    .portrait-fallback::after { content:''; position:absolute; width:340px; height:340px; border:1px solid rgba(34,34,34,.24); border-radius:50%; }
+    .portrait-fallback strong { font-size:clamp(100px,14vw,180px); letter-spacing:-15px; font-family:Manrope,sans-serif; line-height:1; z-index:2; }
+    .portrait-fallback small { font-size:10px; letter-spacing:2px; z-index:2; margin-top:12px; }
+    .photo-stamp { position:absolute; right:17px; bottom:24px; background:#212121; color:#f4d48c; font-size:11px; font-weight:800; letter-spacing:1.5px; padding:13px 16px; z-index:3; }
+    .hero-side-label { position:absolute; right:-26px; top:18%; writing-mode:vertical-rl; color:rgba(0,0,0,.4); font-weight:800; font-size:10px; letter-spacing:4px; z-index:3; }
+    .hero-bottom { border-top:1px solid #414141; }
+    .hero-bottom .container { min-height:73px; display:flex; justify-content:space-between; align-items:center; gap:25px; flex-wrap:wrap; padding-block:14px; }
+    .hero-bottom span { font-size:12px; color:#bcbab5; font-weight:600; }
+    .hero-bottom b { color:var(--accent); margin-right:9px; font-size:13px; }
+    /* About */
+    .about { background:var(--surface); }
+    .about-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:11%; align-items:start; }
+    .about-aside { position:relative; }
+    .big-index { font-family:Manrope,sans-serif; color:#e3dfd6; font-size:144px; letter-spacing:-13px; font-weight:800; position:absolute; top:-75px; right:25px; pointer-events:none; }
+    .about-aside .section-title { position:relative; margin-top:34px; }
+    .about-side-note { font-size:15px; max-width:280px; line-height:1.8; color:var(--muted); }
+    .about-lede { margin:0 0 18px; line-height:1.75; font-size:19px; font-weight:700; letter-spacing:-.25px; }
+    .about-content > p:not(.about-lede) { font-size:15px; line-height:1.95; color:var(--muted); }
+    .facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:25px 25px; border-top:1px solid var(--line); margin-top:30px; padding-top:30px; }
+    .fact small { font-size:11px; color:var(--muted); letter-spacing:1.3px; font-weight:800; text-transform:uppercase; }
+    .fact strong { display:block; margin-top:7px; line-height:1.5; font-size:14px; }
+    /* Areas */
+    .areas { background:var(--ink); color:var(--on-dark); }
+    .areas-head, .works-head { display:flex; justify-content:space-between; align-items:end; gap:25px; }
+    .areas-head p { max-width:410px; color:var(--on-dark-muted); line-height:1.75; font-size:14px; }
+    .areas-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:40px; }
+    .area-card { padding:34px 31px 31px; min-height:276px; border:1px solid #484848; background:var(--ink-2); transition:border-color .2s, transform .2s; }
+    .area-card:hover { border-color:var(--accent); transform:translateY(-3px); }
+    .area-icon { height:52px; width:52px; border:1px solid #676055; color:var(--accent); display:grid; place-items:center; margin-bottom:39px; }
+    .area-icon svg { width:25px; height:25px; }
+    .area-card h3 { font:800 19px Manrope,sans-serif; letter-spacing:-.6px; margin:0 0 11px; }
+    .area-card p { color:var(--on-dark-muted); line-height:1.8; font-size:14px; margin:0; }
+    /* Projects */
+    .projects { background:var(--surface-2); }
+    .section-header-row { display:flex; align-items:end; justify-content:space-between; gap:20px; }
+    .small-link { font-size:13px; font-weight:800; text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:7px; }
+    .featured-list { margin-top:42px; display:grid; gap:25px; }
+    .featured-card { display:grid; grid-template-columns:43% 57%; min-height:320px; background:var(--surface); border:1px solid var(--line); }
+    .featured-visual { padding:28px; display:flex; flex-direction:column; justify-content:space-between; min-height:320px; position:relative; overflow:hidden; }
+    .featured-visual .visual-top { font-size:11px; font-weight:800; letter-spacing:2px; opacity:.7; }
+    .visual-ppp { background:#e9d6af; color:#31302c; }
+    .visual-bot { background:#253333; color:#e9f4ef; }
+    .visual-assistant { background:#dedee7; color:#292b3b; }
+    .flow-chart { display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; transform:rotate(-3deg); }
+    .flow-node { min-width:84px; padding:16px 10px; background:rgba(255,255,255,.77); border:1px solid rgba(0,0,0,.13); text-align:center; box-shadow:6px 6px 0 rgba(0,0,0,.07); font-size:11px; font-weight:800; }
+    .visual-bot .flow-node { color:#1f2a25; }
+    .flow-sep { font-size:23px; font-weight:800; }
+    .visual-number { font-family:Manrope,sans-serif; font-size:64px; line-height:1; font-weight:800; letter-spacing:-5px; opacity:.18; align-self:end; }
+    .featured-info { padding:36px 40px; display:flex; flex-direction:column; justify-content:center; }
+    .project-kicker { font-size:10px; font-weight:800; color:#9a711d; letter-spacing:1.65px; text-transform:uppercase; }
+    .featured-info h3 { font:800 clamp(23px,2.7vw,32px) Manrope,sans-serif; letter-spacing:-1.2px; line-height:1.24; margin:13px 0 16px; }
+    .featured-info p { color:var(--muted); font-size:14px; line-height:1.8; margin:0 0 21px; }
+    .project-points { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+    .project-points span { border:1px solid var(--line); padding:6px 10px; border-radius:3px; font-size:11px; font-weight:700; }
+    .project-cta-row { display:flex; flex-wrap:wrap; gap:19px; align-items:center; }
+    .project-cta-row a, .project-cta-row button { color:var(--text); font-size:12px; font-weight:800; border:0; border-bottom:1px solid #b5a37b; background:transparent; padding:3px 0 6px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; }
+    .project-cta-row a:hover, .project-cta-row button:hover { color:#a5750c; }
+    /* Other projects */
+    .others { padding:100px 0; background:var(--surface); }
+    .filters { display:flex; flex-wrap:wrap; gap:9px; margin-top:32px; margin-bottom:32px; }
+    .filter { border:1px solid var(--line); background:transparent; color:var(--text); padding:10px 16px; font-size:12px; font-weight:800; cursor:pointer; border-radius:3px; transition:background .2s,color .2s; }
+    .filter:hover { border-color:#aaa; }
+    .filter[aria-pressed="true"] { background:#262626; border-color:#262626; color:#fff; }
+    .others-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .other-card { min-height:235px; border:1px solid var(--line); background:var(--surface-2); padding:25px; display:flex; flex-direction:column; gap:14px; }
+    .other-card[hidden] { display:none; }
+    .other-top { display:flex; justify-content:space-between; align-items:center; }
+    .other-tag { font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#97742a; }
+    .other-count { font-size:11px; color:#8d8a83; }
+    .other-card h3 { margin:0; font:800 19px Manrope,sans-serif; letter-spacing:-.5px; }
+    .other-card p { color:var(--muted); font-size:13px; line-height:1.75; margin:0; flex-grow:1; }
+    .other-link { align-self:start; font-weight:800; font-size:12px; padding-bottom:6px; border-bottom:1px solid var(--accent); }
+    .no-filter { display:none; padding:30px; background:var(--surface-2); color:var(--muted); }
+    /* Stack */
+    .skills { background:var(--surface-2); border-top:1px solid var(--line); }
+    .skills-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:35px; }
+    .skill-group { border:1px solid var(--line); background:var(--surface); padding:31px; }
+    .skill-group h3 { font:800 18px Manrope,sans-serif; margin:0 0 10px; }
+    .skill-group p { color:var(--muted); font-size:13px; line-height:1.75; margin:0 0 19px; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:7px; }
+    .skill-tags span { padding:8px 11px; border-radius:3px; background:#ebe7de; font-size:11px; font-weight:800; color:#494641; }
+    /* Trajectory */
+    .education { background:var(--ink); color:var(--on-dark); }
+    .education-grid { display:grid; grid-template-columns:1fr 1fr; gap:13%; }
+    .education p { color:var(--on-dark-muted); line-height:1.8; font-size:15px; }
+    .timeline { border-left:2px solid var(--accent); padding-left:25px; margin-top:21px; }
+    .timeline article + article { margin-top:27px; }
+    .timeline small { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); font-weight:800; }
+    .timeline h3 { font:800 19px Manrope,sans-serif; margin:8px 0; }
+    .timeline p { font-size:13px; margin:0; }
+    /* Contact */
+    .contact { background:var(--accent); color:#202020; padding:100px 0; }
+    .contact-row { display:flex; gap:40px; align-items:end; justify-content:space-between; }
+    .contact .eyebrow::before { background:#232323; }
+    .contact .section-title { max-width:700px; font-size:clamp(34px,5vw,63px); }
+    .contact p { max-width:570px; line-height:1.75; margin-bottom:0; color:#413b32; }
+    .contact-actions { display:flex; flex-direction:column; gap:12px; min-width:210px; }
+    .contact-actions .btn { white-space:nowrap; }
+    /* Footer */
+    .footer { background:#202020; color:#aaa7a0; }
+    .footer .container { display:flex; align-items:center; justify-content:space-between; gap:25px; flex-wrap:wrap; padding-block:26px; }
+    .footer p { margin:0; font-size:12px; }
+    .footer-links { display:flex; gap:19px; }
+    .footer-links a { font-size:12px; color:#e1ddd5; }
+    .footer-links a:hover { color:var(--accent); }
+    /* Dialog */
+    dialog { width:min(620px,calc(100% - 34px)); padding:0; border:1px solid var(--line); border-radius:12px; background:var(--surface-2); color:var(--text); box-shadow:0 25px 100px #0008; }
+    dialog::backdrop { background:rgba(0,0,0,.78); }
+    .dialog-content { padding:36px; }
+    .dialog-head { display:flex; gap:20px; align-items:start; justify-content:space-between; }
+    .dialog-head h2 { font:800 28px Manrope,sans-serif; letter-spacing:-1px; margin:0 0 18px; }
+    .dialog-close { border:1px solid var(--line); background:transparent; color:var(--text); cursor:pointer; padding:9px 12px; border-radius:5px; }
+    .dialog-content h3 { font-size:12px; text-transform:uppercase; letter-spacing:1px; margin:23px 0 9px; color:#a77917; }
+    .dialog-content p { margin:0; line-height:1.8; color:var(--muted); font-size:14px; }
+    /* Motion/accessibility */
+    .reveal { opacity:1; transform:none; }
+    .js-animate .reveal { opacity:1; transform:none; }
+    .js-animate .reveal.is-visible { animation:reveal-in .55s ease both; }
+    @keyframes reveal-in { from { opacity:.7; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    @media(max-width:1020px) {
+      .nav-links { gap:16px; }
+      .hero h1 { font-size:60px; }
+      .hero-shell { grid-template-columns:56% 44%; }
+      .hero-copy { padding-block:92px; }
+      .hero-photo-zone { min-height:620px; }
+      .featured-info { padding:30px; }
+      .flow-node { min-width:72px; }
+    }
+    @media(max-width:760px) {
+      html { scroll-padding-top:75px; }
+      .container { width:min(100% - 38px,600px); }
+      .section-padding { padding:75px 0; }
+      .section-title { font-size:37px; letter-spacing:-1.7px; }
+      .nav-wrap { height:67px; }
+      .nav-cta { display:none; }
+      .menu-button { display:grid; }
+      .nav-links { display:none; position:absolute; top:67px; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; background:#262626; border-bottom:1px solid #444; padding:10px 20px 19px; }
+      .nav-links.is-open { display:flex; }
+      .nav-links a { padding:13px 10px; font-size:15px; }
+      .hero-shell { min-height:unset; display:flex; flex-direction:column; }
+      .hero-copy { padding:68px 0 56px; }
+      .hero h1 { font-size:clamp(46px,11vw,65px); letter-spacing:-2.8px; }
+      .hero-role { font-size:18px; }
+      .hero-photo-zone { min-height:390px; margin:0 -19px; }
+      .photo-frame { inset:17px 23px 0; }
+      .hero-photo-zone::before { inset:5px 12px 15px; }
+      .photo-stamp { bottom:15px; right:25px; }
+      .hero-side-label { right:7px; }
+      .hero-bottom .container { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+      .hero-bottom span { font-size:11px; }
+      .about-grid, .education-grid { grid-template-columns:1fr; gap:25px; }
+      .big-index { font-size:100px; top:-35px; }
+      .about-lede { font-size:17px; }
+      .areas-head, .section-header-row { align-items:start; flex-direction:column; gap:6px; }
+      .areas-grid { grid-template-columns:1fr; }
+      .area-card { min-height:unset; padding:27px; }
+      .area-icon { margin-bottom:22px; }
+      .featured-card { grid-template-columns:1fr; }
+      .featured-visual { min-height:245px; }
+      .featured-info { padding:28px; }
+      .others { padding:75px 0; }
+      .others-grid, .skills-grid { grid-template-columns:1fr; }
+      .contact-row { align-items:stretch; flex-direction:column; }
+      .contact-actions { flex-direction:row; flex-wrap:wrap; }
+      .footer .container { flex-direction:column; align-items:start; }
+    }
+    @media(max-width:420px) {
+      .hero-buttons .btn { flex-grow:1; }
+      .hero-links { gap:13px; }
+      .hero-photo-zone { min-height:340px; }
+      .facts { gap:20px 12px; }
+      .featured-visual { padding:20px; }
+      .flow-node { min-width:66px; padding:13px 9px; font-size:10px; }
+      .flow-chart { gap:7px; }
+      .contact-actions { flex-direction:column; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1>Oscar S. Mendoza Rodriguez</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#sobre-mi">Sobre Mí</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <a href="#principal" class="skip-link">Ir al contenido</a>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-5-13-4 16"/></symbol>
+    <symbol id="i-flow" viewBox="0 0 24 24"><rect x="2" y="3" width="8" height="6" rx="1"/><rect x="14" y="15" width="8" height="6" rx="1"/><path d="M6 9v9h8m-3-3 3 3-3 3"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 9h8m-8 4h6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </svg>
 
-    <section id="showcase">
-        <div class="container">
-            <h1>Estudiante de Ingeniería Informática</h1>
-            <p>Apasionado por el desarrollo web, aplicativos de escritorio y móviles.</p>
-            <a href="#proyectos" class="button">Ver Mis Proyectos</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="wordmark" href="#inicio" aria-label="Oscar Mendoza, ir al inicio">oscar<span aria-hidden="true">.</span><em>dev</em></a>
+      <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a><a href="#areas">Áreas</a><a href="#proyectos">Proyectos</a><a href="#habilidades">Habilidades</a><a href="#contacto">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-button" type="button" aria-label="Cambiar tema" title="Cambiar tema"><svg class="svg-icon"><use href="#i-sun"/></svg></button>
+        <a class="nav-cta" href="mailto:os.mendozar17@gmail.com?subject=Contacto%20desde%20tu%20portafolio">Hablemos ↗</a>
+        <button id="menu-toggle" class="icon-button menu-button" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg class="svg-icon"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="principal">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-shell">
+        <div class="hero-copy">
+          <p class="hero-greeting">Hola, soy Oscar.</p>
+          <h1 id="hero-title">Oscar<br><span>Mendoza.</span></h1>
+          <p class="hero-role">Ingeniería Informática · Desarrollo de software</p>
+          <p class="hero-description">Soy estudiante de la UNFV y desarrollo proyectos de aplicaciones web, automatización y asistentes conversacionales. Me interesa crear soluciones útiles y aprender de cada proyecto.</p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#proyectos">Explorar proyectos <svg class="arrow"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-outline" href="mailto:os.mendozar17@gmail.com?subject=Solicitud%20de%20CV%20-%20Oscar%20Mendoza">Solicitar CV</a>
+          </div>
+          <div class="hero-links"><a href="https://github.com/osmendozar17-dev" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/oscar-sebasthian-mendoza-rodriguez-63b75b309/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
         </div>
+        <div class="hero-photo-zone" aria-label="Área de fotografía personal">
+          <div class="photo-frame">
+            <div class="portrait-fallback" aria-hidden="true"><strong>OM</strong><small>FOTOGRAFÍA PERSONAL</small></div>
+            <!-- Tu foto debe estar en la misma carpeta que index.html con el nombre img.png -->
+            <img class="portrait" id="portrait" src="img.png" alt="Fotografía de Oscar Mendoza Rodríguez" fetchpriority="high" onerror="this.hidden=true">
+          </div>
+          <div class="photo-stamp">UNFV · LIMA, PERÚ</div>
+          <span class="hero-side-label" aria-hidden="true">PORTFOLIO — 2026</span>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <div class="container"><span><b>01 /</b> Estudiante de Ingeniería Informática</span><span><b>02 /</b> Desarrollo web y automatización</span><span><b>03 /</b> Proyectos académicos y personales</span></div>
+      </div>
     </section>
 
-    <div class="container">
-        <section id="sobre-mi">
-            <h2>Sobre Mí</h2>
-            
-            <div class="profile-wrapper">
-                <img src="img.png" alt="Foto de Oscar Mendoza" class="profile-img">
-                <div class="profile-text">
-                    <p>Hola, soy Oscar Mendoza. Actualmente curso el 8vo ciclo de la carrera de Ingeniería Informática en la Universidad Nacional Federico Villarreal, con un fuerte enfoque en la adopción y aprendizaje de nuevas tecnologías.</p>
-                    <p>A lo largo de mi formación profesional, he desarrollado una plataforma web para mi facultad y actualmente me encuentro diseñando y desarrollando un programa orientado al sector alimentario. Poseo una base sólida en lógica de programación, desarrollo de software y una gran motivación para aportar valor, soluciones eficientes y compromiso a un equipo de trabajo real.</p>
-                </div>
-            </div>
-            
-            <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 40px 0;">
+    <section class="about section-padding" id="sobre-mi" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-aside reveal"><span class="eyebrow">Un poco sobre mí</span><span class="big-index" aria-hidden="true">01</span><h2 id="about-title" class="section-title">Más que escribir código.</h2><p class="about-side-note">Me gusta entender una necesidad, ordenar las ideas y convertirlas en una solución que funcione.</p></div>
+        <div class="about-content reveal">
+          <p class="about-lede">Soy Oscar Mendoza Rodríguez, estudiante del 8.º ciclo de Ingeniería Informática en la Universidad Nacional Federico Villarreal.</p>
+          <p>Durante mi formación he desarrollado aplicaciones web, chatbots y herramientas de escritorio. Entre mis proyectos hay soluciones para automatizar trámites universitarios, integrar servicios de mensajería y trabajar con datos.</p>
+          <p>Busco fortalecer mi experiencia en equipos de desarrollo, mejorar mis prácticas de ingeniería de software y seguir construyendo proyectos que puedan usarse fuera del aula.</p>
+          <div class="facts">
+            <div class="fact"><small>Formación</small><strong>Ingeniería Informática · UNFV</strong></div>
+            <div class="fact"><small>Etapa académica</small><strong>8.º ciclo</strong></div>
+            <div class="fact"><small>Intereses</small><strong>Web, automatización e integraciones</strong></div>
+            <div class="fact"><small>Ubicación</small><strong>Lima, Perú</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <h3>Habilidades Técnicas</h3>
-            <div>
-                <span class="skill-tag">HTML5 / CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Git / GitHub</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">PHP</span>
-            </div>
-        </section> 
-        
-        <section id="proyectos">
-            <h2>Proyectos Académicos</h2>
-            <p style="margin-bottom: 10px; color: #64748B;">Algunos de los trabajos destacados durante mi formación:</p>
-            
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 1: Asistente Virtual</h3>
-                        <p>Aplicación de consola desarrollada en Python para ayudar a los usuarios mediante comandos de voz.</p>
-                    </div>
-                    <a href="https://github.com/osmendozar17-dev/Asistente-Virtual-V1" target="_blank">Repositorio &raquo;</a>
-                </div>
+    <section class="areas section-padding" id="areas" aria-labelledby="areas-title">
+      <div class="container">
+        <div class="areas-head reveal"><div><span class="eyebrow">Mis áreas de trabajo</span><h2 id="areas-title" class="section-title">En qué me enfoco<span class="text-accent">.</span></h2></div><p>Estas son las áreas en las que he trabajado a través de mis proyectos. No son una lista de servicios comerciales, sino habilidades que continúo desarrollando.</p></div>
+        <div class="areas-grid">
+          <article class="area-card reveal"><div class="area-icon"><svg class="svg-icon"><use href="#i-code"/></svg></div><h3>Desarrollo web</h3><p>Interfaces y sistemas orientados a procesos concretos, utilizando tecnologías como HTML, CSS, JavaScript y PHP.</p></article>
+          <article class="area-card reveal"><div class="area-icon"><svg class="svg-icon"><use href="#i-flow"/></svg></div><h3>Automatización</h3><p>Herramientas que simplifican tareas repetitivas, organizan información y facilitan el trabajo de los usuarios.</p></article>
+          <article class="area-card reveal"><div class="area-icon"><svg class="svg-icon"><use href="#i-chat"/></svg></div><h3>Chatbots e integraciones</h3><p>Experimentos e implementaciones con APIs, Webhooks y flujos conversacionales en plataformas de mensajería.</p></article>
+        </div>
+      </div>
+    </section>
 
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 2: App Móvil</h3>
-                        <p>Aplicativo móvil de recetario y carta especializada en pescados y mariscos.</p>
-                    </div>
-                    <a href="https://github.com/osmendozar17-dev/App-Recetario-y-Carta.git" target="_blank">Repositorio &raquo;</a>
-                </div>
-            
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 3: Sistema Olla Común</h3>
-                        <p>Aplicación de escritorio desarrollada con PHP, JavaScript, CSS y conexión a base de datos SQL (vía phpMyAdmin).</p>
-                    </div>
-                </div>
+    <section class="projects section-padding" id="proyectos" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-header-row reveal"><div><span class="eyebrow">Selección de trabajos</span><h2 id="projects-title" class="section-title">Proyectos destacados<span style="color:#bc8822">.</span></h2><p class="section-intro">Tres proyectos que muestran diferentes formas de abordar un problema: diseñar un proceso, integrar una API y construir un asistente.</p></div><a class="small-link" href="#otros-proyectos">Ver todos los proyectos ↘</a></div>
+        <div class="featured-list">
+          <article class="featured-card reveal">
+            <div class="featured-visual visual-ppp"><span class="visual-top">01 / AUTOMATIZACIÓN DOCUMENTAL</span><div class="flow-chart" aria-label="Esquema: archivos, validación, documento PDF"><span class="flow-node">Archivos</span><span class="flow-sep">→</span><span class="flow-node">Organización</span><span class="flow-sep">→</span><span class="flow-node">PDF</span></div><span class="visual-number" aria-hidden="true">01</span></div>
+            <div class="featured-info"><span class="project-kicker">Proyecto académico · Aplicación web</span><h3>Automatización de la carta de presentación</h3><p>Una web orientada a simplificar la preparación de documentos para solicitar la carta de presentación de prácticas preprofesionales. Centraliza los archivos requeridos y los consolida en un PDF para su envío a la universidad.</p><div class="project-points"><span>Gestión documental</span><span>Consolidación de PDF</span><span>Proceso universitario</span></div><div class="project-cta-row"><button type="button" data-case="ppp">Conocer el proyecto ↗</button></div></div>
+          </article>
+          <article class="featured-card reveal">
+            <div class="featured-visual visual-bot"><span class="visual-top">02 / INTEGRACIÓN DE SERVICIOS</span><div class="flow-chart" aria-label="Esquema: WhatsApp, Webhook y respuesta"><span class="flow-node">WhatsApp</span><span class="flow-sep">↔</span><span class="flow-node">Webhook</span><span class="flow-sep">↔</span><span class="flow-node">Respuesta</span></div><span class="visual-number" aria-hidden="true">02</span></div>
+            <div class="featured-info"><span class="project-kicker">Integraciones · Chatbot</span><h3>Chatbot para WhatsApp</h3><p>Integración de un chatbot con la API de Meta y Webhooks, utilizando ngrok durante las pruebas. El objetivo fue trabajar con la recepción de eventos y la automatización de respuestas en una plataforma de mensajería.</p><div class="project-points"><span>Meta API</span><span>Webhooks</span><span>ngrok</span></div><div class="project-cta-row"><button type="button" data-case="whatsapp">Conocer el proyecto ↗</button><a href="https://github.com/osmendozar17-dev/Chatbot-WhatsApp" target="_blank" rel="noopener noreferrer">Repositorio ↗</a></div></div>
+          </article>
+          <article class="featured-card reveal">
+            <div class="featured-visual visual-assistant"><span class="visual-top">03 / PROGRAMACIÓN CON PYTHON</span><div class="flow-chart" aria-label="Esquema: voz, procesamiento y respuesta"><span class="flow-node">Voz</span><span class="flow-sep">→</span><span class="flow-node">Proceso</span><span class="flow-sep">→</span><span class="flow-node">Respuesta</span></div><span class="visual-number" aria-hidden="true">03</span></div>
+            <div class="featured-info"><span class="project-kicker">Python · Asistente virtual</span><h3>Asistente virtual por comandos de voz</h3><p>Proyecto en Python orientado a interpretar comandos de voz y realizar interacciones desde una aplicación de consola. Me permitió explorar lógica de programación e interacción entre el usuario y el software.</p><div class="project-points"><span>Python</span><span>Comandos de voz</span><span>Aplicación de consola</span></div><div class="project-cta-row"><button type="button" data-case="assistant">Conocer el proyecto ↗</button><a href="https://github.com/osmendozar17-dev/Asistente-Virtual-V1" target="_blank" rel="noopener noreferrer">Repositorio ↗</a></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 4: ChatBot WhatsApp</h3>
-                        <p>ChatBot para WhatsApp mediante conexión a la API de Meta vía Webhooks, utilizando ngrok como entorno de pruebas para automatizar la atención.</p>
-                    </div>
-                    <a href="https://github.com/osmendozar17-dev/Chatbot-WhatsApp.git" target="_blank">Repositorio &raquo;</a>
-                </div>
+    <section class="others" id="otros-proyectos" aria-labelledby="others-title"><div class="container">
+      <span class="eyebrow">Más proyectos</span><h2 id="others-title" class="section-title">Otras experiencias<span style="color:#bc8822">.</span></h2><p class="section-intro">Aplicaciones, prototipos e integraciones realizadas durante mi formación. Utiliza los filtros para explorar por tipo de proyecto.</p>
+      <div class="filters" role="group" aria-label="Filtrar proyectos"><button class="filter" type="button" data-filter="all" aria-pressed="true">Todos</button><button class="filter" type="button" data-filter="web" aria-pressed="false">Web y sistemas</button><button class="filter" type="button" data-filter="bots" aria-pressed="false">Chatbots</button><button class="filter" type="button" data-filter="app" aria-pressed="false">Aplicaciones</button></div>
+      <div class="others-grid" id="other-grid">
+        <article class="other-card reveal" data-category="app"><div class="other-top"><span class="other-tag">Aplicación móvil</span><span class="other-count">04</span></div><h3>Recetario y carta digital</h3><p>Aplicación móvil que reúne recetas y una carta especializada en pescados y mariscos.</p><a class="other-link" href="https://github.com/osmendozar17-dev/App-Recetario-y-Carta" target="_blank" rel="noopener noreferrer">Ver repositorio ↗</a></article>
+        <article class="other-card reveal" data-category="web"><div class="other-top"><span class="other-tag">Sistema de gestión</span><span class="other-count">05</span></div><h3>Sistema Olla Común</h3><p>Aplicación desarrollada con PHP, JavaScript, CSS y una base de datos SQL para un entorno de gestión.</p><span class="other-tag">Repositorio no publicado</span></article>
+        <article class="other-card reveal" data-category="bots"><div class="other-top"><span class="other-tag">Chatbot</span><span class="other-count">06</span></div><h3>Chatbot de Messenger</h3><p>Integración conversacional para Facebook Messenger usando la API de Meta y Webhooks.</p><a class="other-link" href="https://github.com/osmendozar17-dev/Chatbot-Messenger" target="_blank" rel="noopener noreferrer">Ver repositorio ↗</a></article>
+        <article class="other-card reveal" data-category="web bots"><div class="other-top"><span class="other-tag">Web + Asistente</span><span class="other-count">07</span></div><h3>Chatbot Escolar</h3><p>Página web con asistente conversacional para resolver consultas sobre procesos de matrícula.</p><a class="other-link" href="https://github.com/osmendozar17-dev/Pagina-Web-Chatbot-Escolar" target="_blank" rel="noopener noreferrer">Ver repositorio ↗</a></article>
+        <article class="other-card reveal" data-category="app"><div class="other-top"><span class="other-tag">Escritorio</span><span class="other-count">08</span></div><h3>Medición de porosidad</h3><p>Programa para Windows que estima porosidad en alimentos y presenta márgenes definidos para su evaluación. No sustituye análisis especializados de seguridad alimentaria.</p><span class="other-tag">Repositorio no publicado</span></article>
+        <article class="other-card reveal" data-category="web"><div class="other-top"><span class="other-tag">Proyecto personal</span><span class="other-count">09</span></div><h3>Portafolio web V1</h3><p>Primera versión de mi portafolio personal, desarrollada para organizar mi perfil y proyectos.</p><a class="other-link" href="https://github.com/osmendozar17-dev/Portafolio-v1" target="_blank" rel="noopener noreferrer">Ver repositorio ↗</a></article>
+      </div>
+      <p class="no-filter" id="no-filter">No hay proyectos en esta categoría.</p>
+    </div></section>
 
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 5: ChatBot Messenger</h3>
-                        <p>ChatBot para Facebook Messenger integrando la API de Meta mediante Webhooks. Proyecto enfocado en automatización conversacional.</p>
-                    </div>
-                    <a href="https://github.com/osmendozar17-dev/Chatbot-Messenger.git" target="_blank">Repositorio &raquo;</a>
-                </div>
+    <section class="skills section-padding" id="habilidades" aria-labelledby="skills-title"><div class="container"><span class="eyebrow">Tecnologías y herramientas</span><h2 id="skills-title" class="section-title">Mi caja de herramientas<span style="color:#bc8822">.</span></h2><p class="section-intro">Prefiero mostrar en qué he utilizado una tecnología en lugar de asignarme un porcentaje arbitrario de dominio.</p><div class="skills-grid">
+      <article class="skill-group reveal"><h3>Desarrollo web</h3><p>Creación de interfaces y lógica para aplicaciones web académicas y personales.</p><div class="skill-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP</span></div></article>
+      <article class="skill-group reveal"><h3>Programación y datos</h3><p>Desarrollo de soluciones y manejo de información estructurada en proyectos.</p><div class="skill-tags"><span>Python</span><span>SQL</span><span>phpMyAdmin</span></div></article>
+      <article class="skill-group reveal"><h3>Integraciones</h3><p>Conexión de servicios y experimentación con flujos basados en eventos y mensajería.</p><div class="skill-tags"><span>Meta API</span><span>Webhooks</span><span>ngrok</span></div></article>
+      <article class="skill-group reveal"><h3>Flujo de desarrollo</h3><p>Control de versiones y organización de trabajo mediante repositorios de código.</p><div class="skill-tags"><span>Git</span><span>GitHub</span><span>VS Code</span></div></article>
+    </div></div></section>
 
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 6: ChatBot Escolar</h3>
-                        <p>Página Web que integra un asistente conversacional para resolver dudas de padres de familia sobre procesos de matrícula.</p>
-                    </div>
-                    <a href="https://github.com/osmendozar17-dev/Pagina-Web-Chatbot-Escolar.git" target="_blank">Repositorio &raquo;</a>
-                </div>
+    <section class="education section-padding" id="trayectoria" aria-labelledby="education-title"><div class="container education-grid"><div class="reveal"><span class="eyebrow">Formación y crecimiento</span><h2 id="education-title" class="section-title">En constante aprendizaje<span class="text-accent">.</span></h2><p>Mi objetivo es dar el siguiente paso hacia un entorno profesional donde pueda seguir aprendiendo, participar en proyectos y aportar desde mi experiencia académica.</p></div><div class="timeline reveal"><article><small>Formación universitaria</small><h3>Universidad Nacional Federico Villarreal</h3><p>Ingeniería Informática · 8.º ciclo</p></article><article><small>Experiencia de proyectos</small><h3>Desarrollo académico y personal</h3><p>Aplicaciones web, asistentes, automatización y sistemas de escritorio.</p></article><article><small>Próximo objetivo</small><h3>Prácticas y oportunidades junior</h3><p>Colaborar en proyectos reales y fortalecer mis habilidades de ingeniería de software.</p></article></div></div></section>
 
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 7: Portafolio V1</h3>
-                        <p>Primera versión de mi página web personal con información sobre mi perfil y los proyectos realizados como estudiante.</p>
-                    </div>
-                    <a href="https://github.com/osmendozar17-dev/Portafolio-v1.git" target="_blank">Repositorio &raquo;</a>
-                </div>
+    <section class="contact" id="contacto" aria-labelledby="contact-title"><div class="container contact-row"><div><span class="eyebrow">¿Conversamos?</span><h2 id="contact-title" class="section-title">¿Tienes una oportunidad o proyecto en mente?</h2><p>Me interesa conocer oportunidades de prácticas, desarrollo de software y colaboración tecnológica. Puedes escribirme directamente o revisar mis proyectos en GitHub.</p></div><div class="contact-actions"><a class="btn btn-dark" href="mailto:os.mendozar17@gmail.com?subject=Contacto%20profesional%20-%20Oscar%20Mendoza">Enviar correo <svg class="arrow"><use href="#i-arrow"/></svg></a><button id="copy-email" class="btn" type="button" style="border-color:#34302b;background:transparent;color:#202020">Copiar mi correo</button></div></div></section>
+  </main>
 
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 8: Automatización Carta de Presentación de PPP</h3>
-                        <p>Web que se encarga de generar un consolidado para que el alumno pueda enviar a la universidad lo solicitado. Agiliza la obtención de la Carta de Presentación para Prácticas Pre Profesionales.</p>
-                    </div>
-                </div>
+  <footer class="footer"><div class="container"><p>© <span id="year">2026</span> Oscar Mendoza Rodríguez. Hecho con HTML, CSS y JavaScript.</p><div class="footer-links"><a href="https://github.com/osmendozar17-dev" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/oscar-sebasthian-mendoza-rodriguez-63b75b309/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="mailto:os.mendozar17@gmail.com">Correo ↗</a></div></div></footer>
 
-                <div class="project-card">
-                    <div>
-                        <h3>Proyecto 9: Medición de Porosidad</h3>
-                        <p>Programa de escritorio para Windows 11. Obtiene la porosidad en alimentos y ciertos márgenes para saber si es óptimo para el consumo humano.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>¿Interesado en mi perfil? ¡Estaré encantado de conversar!</p>
-            <p>📧 Email: <a href="mailto:os.mendozar17@gmail.com">os.mendozar17@gmail.com</a></p>
-            <p>🔗 <a href="https://www.linkedin.com/in/oscar-sebasthian-mendoza-rodriguez-63b75b309/" target="_blank">Ver mi perfil de LinkedIn</a></p>
-        </section>
-        
-    </div>
-
-    <footer>
-        <p>Oscar Mendoza &copy; 2026 | Desarrollado con HTML y CSS</p>
-    </footer>
+  <dialog id="case-dialog" aria-labelledby="case-title"><div class="dialog-content"><div class="dialog-head"><h2 id="case-title">Proyecto</h2><button type="button" class="dialog-close" id="close-dialog" aria-label="Cerrar detalle">✕</button></div><h3>Problema o necesidad</h3><p id="case-problem"></p><h3>Qué desarrollé</h3><p id="case-solution"></p><h3>Qué demuestra</h3><p id="case-learning"></p></div></dialog>
+  <script>
+    'use strict';
+    const menuButton = document.querySelector('#menu-toggle');
+    const nav = document.querySelector('#nav-links');
+    menuButton.addEventListener('click', () => {
+      const open = !nav.classList.contains('is-open');
+      nav.classList.toggle('is-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Abrir menú');
+    }));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 760) { nav.classList.remove('is-open'); menuButton.setAttribute('aria-expanded', 'false'); }
+    });
+    const themeButton = document.querySelector('#theme-toggle');
+    const savedTheme = (() => { try { return localStorage.getItem('oscar-portfolio-theme'); } catch (_) { return null; } })();
+    if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    themeButton.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      themeButton.setAttribute('aria-label', next === 'dark' ? 'Activar tema claro' : 'Activar tema oscuro');
+      try { localStorage.setItem('oscar-portfolio-theme', next); } catch (_) {}
+    });
+    themeButton.setAttribute('aria-label', document.documentElement.dataset.theme === 'dark' ? 'Activar tema claro' : 'Activar tema oscuro');
+    const filters = [...document.querySelectorAll('.filter')];
+    const projectCards = [...document.querySelectorAll('.other-card')];
+    const noFilter = document.querySelector('#no-filter');
+    filters.forEach(filter => filter.addEventListener('click', () => {
+      const key = filter.dataset.filter;
+      filters.forEach(button => button.setAttribute('aria-pressed', String(button === filter)));
+      let visible = 0;
+      projectCards.forEach(card => {
+        const show = key === 'all' || card.dataset.category.split(' ').includes(key);
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      noFilter.style.display = visible ? 'none' : 'block';
+    }));
+    const cases = {
+      ppp: {title:'Automatización de carta de presentación', problem:'Para solicitar la carta de presentación de prácticas preprofesionales, los estudiantes necesitan reunir y presentar varios documentos.', solution:'Desarrollé una aplicación web orientada a cargar los documentos requeridos y reunirlos en un solo archivo PDF para enviar a la universidad.', learning:'Diseño de flujos de usuario, organización de documentos y automatización de una tarea administrativa. Este proyecto está descrito sin métricas de impacto que no haya medido.'},
+      whatsapp: {title:'Chatbot para WhatsApp', problem:'Explorar cómo recibir eventos y automatizar respuestas dentro de una plataforma de mensajería.', solution:'Trabajé con la API de Meta mediante Webhooks y utilicé ngrok para realizar pruebas en un entorno de desarrollo.', learning:'Integración con APIs externas, uso de Webhooks y pruebas de flujos conversacionales.'},
+      assistant: {title:'Asistente virtual por comandos de voz', problem:'Investigar cómo un programa puede recibir indicaciones de voz como forma de interacción.', solution:'Desarrollé una aplicación de consola en Python para interactuar con el usuario mediante comandos de voz.', learning:'Lógica de programación, integración de entradas por voz y diseño de interacciones.'}
+    };
+    const dialog = document.querySelector('#case-dialog');
+    document.querySelectorAll('[data-case]').forEach(button => button.addEventListener('click', () => {
+      const data = cases[button.dataset.case];
+      if (!data) return;
+      document.querySelector('#case-title').textContent = data.title;
+      document.querySelector('#case-problem').textContent = data.problem;
+      document.querySelector('#case-solution').textContent = data.solution;
+      document.querySelector('#case-learning').textContent = data.learning;
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+    }));
+    document.querySelector('#close-dialog').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    document.querySelector('#copy-email').addEventListener('click', async event => {
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText('os.mendozar17@gmail.com');
+        button.textContent = '¡Correo copiado!';
+      } catch (_) { button.textContent = 'os.mendozar17@gmail.com'; }
+    });
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
+      }, { threshold:0.08, rootMargin:'0px 0px 40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      document.documentElement.classList.add('js-animate');
+    }
+  </script>
 </body>
 </html>
